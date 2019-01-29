@@ -6,8 +6,9 @@ const mongoose = require('mongoose');
 
 const productRoutes = require('./api/routes/product');
 const orderRoutes = require('./api/routes/orders');
+const seqRoutes = require('./api/routes/seqProduct');
 
-mongoose.connect('mongodb+srv://AhmedRaza:' + process.env.MONGO_ATLAS_PW + '@raza-shop-iadez.mongodb.net/test?retryWrites=true',{useNewUrlParser: true})
+mongoose.connect('mongodb+srv://AhmedRaza:' + process.env.MONGO_ATLAS_PW + '@raza-shop-iadez.mongodb.net/test?retryWrites=true', { useNewUrlParser: true })
 
 mongoose.Promise = global.Promise;
 
@@ -35,8 +36,9 @@ app.use(bodyParser.json());
 //     }
 // })
 
-app.use(('/products'), productRoutes);
-app.use(('/orders'), orderRoutes);
+// app.use(('/products'), productRoutes);
+// app.use(('/orders'), orderRoutes);
+app.use(('/seq'), seqRoutes);
 
 //Error Handling
 
